@@ -32,7 +32,6 @@ blueprint:
       default: []
       selector:
         action: {}
-
     button_1_hold:
       name: Button 1 Hold
       default: []
