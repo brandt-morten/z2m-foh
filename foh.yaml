@@ -11,7 +11,6 @@ blueprint:
       default: zigbee2mqtt/foh_switch/action
       selector:
         text:
-
     button_1_press:
       name: Button 1 Press
       default: []
@@ -32,7 +31,6 @@ blueprint:
       default: []
       selector:
         action: {}
-
     button_1_hold:
       name: Button 1 Hold
       default: []
@@ -53,14 +51,11 @@ blueprint:
       default: []
       selector:
         action: {}
-
 trigger:
   - platform: mqtt
     topic: !input foh_topic
-
 variables:
   action: "{{ trigger.payload }}"
-
 action:
   - choose:
       - conditions: "{{ action == 'press_1' }}"
@@ -71,7 +66,6 @@ action:
         sequence: !input button_3_press
       - conditions: "{{ action == 'press_4' }}"
         sequence: !input button_4_press
-
       - conditions: "{{ action == 'hold_1' }}"
         sequence: !input button_1_hold
       - conditions: "{{ action == 'hold_2' }}"
@@ -80,6 +74,5 @@ action:
         sequence: !input button_3_hold
       - conditions: "{{ action == 'hold_4' }}"
         sequence: !input button_4_hold
-
 mode: queued
 max: 10
